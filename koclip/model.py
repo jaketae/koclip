@@ -24,7 +24,7 @@ from transformers.modeling_flax_utils import FlaxPreTrainedModel
 from transformers.models.clip.modeling_flax_clip import FlaxCLIPOutput
 from transformers.utils import logging
 
-from configuration_hybrid_clip import HybridCLIPConfig
+from config import HybridCLIPConfig
 
 logger = logging.get_logger(__name__)
 

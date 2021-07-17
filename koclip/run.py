@@ -54,7 +54,7 @@ from transformers import (
 )
 
 from dataloader import ImageTextDataset, Transform
-from modeling_hybrid_clip import FlaxHybridCLIP
+from model import FlaxHybridCLIP
 
 logger = logging.getLogger(__name__)
 
