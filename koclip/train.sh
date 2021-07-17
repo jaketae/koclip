@@ -1,0 +1,14 @@
+python run_hybrid_clip.py \
+    --output_dir="models/coco_only_large" \
+    --text_model_name_or_path="klue/roberta-large" \
+    --vision_model_name_or_path="google/vit-large-patch16-224" \
+    --tokenizer_name="klue/roberta-large" \
+    --train_file="../dataset/coco/train_annotations.json" \
+    --validation_file="../dataset/coco/valid_annotations.json" \
+    --do_train --do_eval \
+    --num_train_epochs="50" --max_seq_length 96 \
+    --per_device_train_batch_size="32" \
+    --per_device_eval_batch_size="32" \
+    --learning_rate="5e-5" --warmup_steps="1" --weight_decay 0.1 \
+    --overwrite_output_dir \
+    --preprocessing_num_workers 32
