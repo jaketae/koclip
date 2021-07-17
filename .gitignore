@@ -132,8 +132,4 @@ cython_debug/
 # static files generated from Django application
 media
 staticfiles
-<<<<<<< HEAD
 /tags
-=======
-/tags
->>>>>>> 0af5018a6bc1fbfe25f46ad33fb1b0bf44cde68b
