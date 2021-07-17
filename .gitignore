@@ -1,17 +1,3 @@
-# project-specific
-*.zip
-*.json
-*.png
-*.jpeg
-*.jpg
-*.svg
-dataset/coco/train2014/
-dataset/coco/valid2014/
-wit/img/
-wit/info/
-wit_ko.csv
-koclip/models/
-
 # macOS
 .DS_Store
 
