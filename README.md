@@ -2,6 +2,12 @@
 
 This repository contains code for KoCLIP, a Korean port of OpenAI's CLIP. This project was conducted as part of Hugging Face's [Flax community week](https://discuss.huggingface.co/t/open-to-the-community-community-week-using-jax-flax-for-nlp-cv/7104).
 
+## Image Search Demo
+
+KoCLIP can be utilized for a Text to Image Search Engine by calculating embeddings for Images and Text Query and calculating cosine-similarity.
+
+[Demo Link](https://huggingface.co/spaces/flax-community/koclip)
+
 ## Quickstart
 
 1. Import dependencies and initialize a KoCLIP model and a `CLIPProcessor`.
