@@ -1,12 +1,10 @@
 # KoCLIP
 
-This repository contains code for KoCLIP, a Korean port of OpenAI's CLIP. This project was conducted as part of Hugging Face's [Flax community week](https://discuss.huggingface.co/t/open-to-the-community-community-week-using-jax-flax-for-nlp-cv/7104).
+This repository contains code for KoCLIP, a Korean port of OpenAI's CLIP. This project was conducted as part of Hugging Face's [Flax/JAX community week](https://github.com/huggingface/transformers/blob/master/examples/research_projects/jax-projects/README.md#quickstart-flax-and-jax) co-organized with Google's Flax, JAX, and Cloud teams ([announcement](https://discuss.huggingface.co/t/open-to-the-community-community-week-using-jax-flax-for-nlp-cv/7104)).
 
-## Image Search Demo
+## Demo
 
-KoCLIP can be utilized for a Text to Image Search Engine by calculating embeddings for Images and Text Query and calculating cosine-similarity.
-
-[Demo Link](https://huggingface.co/spaces/flax-community/koclip)
+If you have access to [Hugging Face spaces](https://huggingface.co/docs/hub/spaces), you can access the demo [here](https://huggingface.co/spaces/flax-community/koclip). We are also planning to deploy the Streamlit app to a publicly accessible address in the near future.
 
 ## Quickstart
 
@@ -56,13 +54,20 @@ for idx, prob in sorted(enumerate(*probs), key=lambda x: x[1], reverse=True):
 On a high level, the KoCLIP pipeline is equivalent to that of the original CLIP model: it is composed of a transformer text encoder and an image encoder. Specific model configurations are listed below.
 
 * `koclip-base` uses `klue/roberta` as its language model backbone and `openai/clip-vit-base-patch32` as its image encoder backbone. 
-* `koclip-large` uses the same language model backbone, but uses a larger image encoder, `google/vit-large-patch16-224`. 
+* `koclip-large` uses the same language model backbone, but uses a larger image encoder, `google/vit-large-patch16-224`.
 
 ## Training
 
 KoCLIP was trained on 82783 images from the [MS COCO dataset](https://cocodataset.org/). Korean translations of caption annotations were obtained from [AI Hub](https://aihub.or.kr/keti_data_board/visual_intelligence). Each image comes with 5 possible ground-truth captions. KoCLIP was trained on a TPU3-v8 VM. Both text and image encoder backbones were loaded from their pretrained checkpoints. During fine-tuning, KoCLIP was trained to maximize the similarity score between matching pairs of images and captions.
 
+## Team
+
+* @ampehta
+* @jaketae
+* @tree-park
+* @trent-dev
+
 ## Acknowledgement
 
-The `FlaxHybridCLIP` model was adpated from the Hugging Face transformer repository, under [jax-projects](https://github.com/huggingface/transformers/tree/master/examples/research_projects/jax-projects/hybrid_clip).  We also express gratitude to the teams at Hugging Face and Google Cloud Platform for generously offering TPU VMs for this project.
+The `FlaxHybridCLIP` model was adpated from the Hugging Face transformer repository, under [jax-projects](https://github.com/huggingface/transformers/tree/master/examples/research_projects/jax-projects/hybrid_clip).  We also express gratitude to the teams at Google for generously offering TPU VMs for this project. Last but not least, we thank the [KLUE team](https://github.com/KLUE-benchmark) for making pretrained Korean RoBERTa-large weights publicly available.
 
