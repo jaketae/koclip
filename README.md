@@ -4,7 +4,7 @@ This repository contains code for KoCLIP, a Korean port of OpenAI's CLIP. This p
 
 ## Image Search Demo
 
-KoCLIP can be utilized for a Text to Image Search Engine.
+KoCLIP can be utilized for a Text to Image Search Engine by calculating embeddings for Images and Text Query and calculating cosine-similarity.
 
 [Demo Link](https://huggingface.co/spaces/flax-community/koclip)
 
