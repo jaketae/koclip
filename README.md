@@ -62,10 +62,10 @@ KoCLIP was trained on 82783 images from the [MS COCO dataset](https://cocodatase
 
 ## Team
 
-* @ampehta
-* @jaketae
-* @tree-park
-* @trent-dev
+* [Guijin Son](https://github.com/ampehta)
+* [Hansol Park](https://github.com/tree-park)
+* [Jake Tae](https://github.com/jaketae)
+* [Trent Oh](https://github.com/trent-dev)
 
 ## Acknowledgement
 
