@@ -8,19 +8,16 @@ Check out our Streamlit app [here](https://tinyurl.com/koclip-app). Please under
 
 ## Quickstart
 
-1. Import dependencies and initialize a KoCLIP model and a `CLIPProcessor`.
+1. Import dependencies and initialize a KoCLIP model along with its processor.
 
 ```python
 import requests
 import jax
 from PIL import Image
 
-from koclip.model import FlaxHybridCLIP
-from transformers import CLIPProcessor
+from koclip import load_koclip
 
-koclip = "koclip/koclip-base"
-model = FlaxHybridCLIP.from_pretrained(koclip)
-processor = CLIPProcessor.from_pretrained(koclip)
+model, processor = load_koclip("koclip/koclip-base")
 ```
 
 2. Prepare image and text captions.
