@@ -8,6 +8,8 @@ Check out our Streamlit app [here](https://tinyurl.com/koclip-app). Please under
 
 ## Quickstart
 
+To follow along the code snippets below, we recommend that you refer to the [Colab notebook](./inference.ipynb). 
+
 1. Import dependencies and initialize a KoCLIP model along with its processor.
 
 ```python
@@ -25,7 +27,7 @@ model, processor = load_koclip("koclip-base")
 ```python
 url = "http://images.cocodataset.org/val2017/000000039769.jpg"
 image = Image.open(requests.get(url, stream=True).raw)
-text = ["고양이들", "강아지 두 마리", "우산을 쓴 사람", "도시 풍경"]
+text = ["소파 위에 고양이", "강아지와 강아지 주인", "쳇바퀴를 달리는 햄스터", "자동차"]
 image
 ```
 
