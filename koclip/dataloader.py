@@ -78,8 +78,7 @@ class ImageTextDataset(VisionDataset):
         except:
             print(path)
             raise RuntimeError
-       
-        
+
     def _load_target(self, idx):
         return self.captions[idx]
 
@@ -89,7 +88,7 @@ class ImageTextDataset(VisionDataset):
 
         if self.transforms is not None:
             image, target = self.transforms(image, target)
-        
+
         return image, target
 
     def __len__(self) -> int:

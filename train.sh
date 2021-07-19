@@ -1,4 +1,4 @@
-python koclip/run.py \
+python run.py \
     --output_dir="checkpoint" \
     --text_model_name_or_path="klue/roberta-large" \
     --vision_model_name_or_path="openai/clip-vit-base-patch32" \

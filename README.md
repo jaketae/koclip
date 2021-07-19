@@ -17,7 +17,7 @@ from PIL import Image
 
 from koclip import load_koclip
 
-model, processor = load_koclip("koclip/koclip-base")
+model, processor = load_koclip("koclip-base")
 ```
 
 2. Prepare image and text captions.
@@ -35,7 +35,7 @@ image
 inputs = processor(
     text=text,
     images=image, 
-    return_tensors="pt", 
+    return_tensors="jax", # could also be "pt" 
     padding=True
 )
 

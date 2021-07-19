@@ -45,16 +45,10 @@ from torchvision.io import ImageReadMode, read_image
 from torchvision.transforms import CenterCrop, ConvertImageDtype, Normalize, Resize
 from torchvision.transforms.functional import InterpolationMode
 from tqdm import tqdm
-from transformers import (
-    AutoTokenizer,
-    HfArgumentParser,
-    TrainingArguments,
-    is_tensorboard_available,
-    set_seed,
-)
+from transformers import AutoTokenizer, HfArgumentParser, TrainingArguments, is_tensorboard_available, set_seed
 
-from dataloader import ImageTextDataset, Transform
-from model import FlaxHybridCLIP
+from koclip.dataloader import ImageTextDataset, Transform
+from koclip.model import FlaxHybridCLIP
 
 logger = logging.getLogger(__name__)
 

@@ -1,0 +1,7 @@
+jax
+jaxlib
+flax
+optax
+transformers
+tqdm
+torchvision

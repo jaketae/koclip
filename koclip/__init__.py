@@ -1,1 +1,1 @@
-from utils import load_koclip
+from .utils import load_koclip
