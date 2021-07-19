@@ -4,7 +4,7 @@ This repository contains code for KoCLIP, a Korean port of OpenAI's CLIP. This p
 
 ## Demo
 
-If you have access to [Hugging Face spaces](https://huggingface.co/docs/hub/spaces), you can access the demo [here](https://huggingface.co/spaces/flax-community/koclip). We are also planning to deploy the Streamlit app to a publicly accessible address in the near future.
+Check out our Streamlit app [here](https://tinyurl.com/koclip-app). Please understand that the app might take some time to load.
 
 ## Quickstart
 
