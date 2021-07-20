@@ -9,7 +9,7 @@ This repository contains code for KoCLIP, a Korean port of OpenAI's CLIP. This p
 Check out our Streamlit app [here](https://tinyurl.com/koclip-app). The demo illustrates three potential uses cases of KoCLIP on different downstream tasks:
 
 * *Image to Text*: This is essentially a zero-shot image classification task. Given an input image, the models finds the most likely caption among the text labels provided.
-* *Text to * Image*: This is essentially an image retrieval task. Given a text, the model looks up a database of pre-computed image embeddings to retrieve the image that best matches given text. 
+* *Text to Image*: This is essentially an image retrieval task. Given a text, the model looks up a database of pre-computed image embeddings to retrieve the image that best matches given text. 
 * *Text to Patch*: This is also a variant of zero-shot image classification. Given a text and an image, the image is partitioned into subsections, and the model ranks them based on their relevance with the text query.
 
 ## Quickstart
