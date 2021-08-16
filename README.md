@@ -95,7 +95,7 @@ At the end of the day, we still found it intriguing that a model that was fine-t
 
 ## Team
 
-* [Guijin Son](https://github.com/ampehta)
+* [GUIJIN SON](https://github.com/guijinSON)
 * [Hansol Park](https://github.com/tree-park)
 * [Jake Tae](https://github.com/jaketae)
 * [Trent Oh](https://github.com/trent-dev)
