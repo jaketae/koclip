@@ -241,6 +241,7 @@ def main():
     parser = HfArgumentParser(
         (ModelArguments, DataTrainingArguments, TrainingArguments)
     )
+    parser.add_argument("--run_from_checkpoint", type=str, default=None)
     if len(sys.argv) == 2 and sys.argv[1].endswith(".json"):
         # If we pass only one argument to the script and it's the path to a json file,
         # let's parse it to get our arguments.
@@ -248,7 +249,7 @@ def main():
             json_file=os.path.abspath(sys.argv[1])
         )
     else:
-        model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+        model_args, data_args, training_args, args = parser.parse_args_into_dataclasses()
 
     if (
         os.path.exists(training_args.output_dir)
@@ -294,15 +295,27 @@ def main():
             "You are instantiating a new tokenizer from scratch. This is not supported by this script."
             "You can do it from another script, save it, and load it from here, using --tokenizer_name."
         )
-
-    model = FlaxHybridCLIP.from_text_vision_pretrained(
-        model_args.text_model_name_or_path,
-        model_args.vision_model_name_or_path,
-        seed=training_args.seed,
-        dtype=getattr(jnp, model_args.dtype),
-        text_from_pt=model_args.from_pt,
-        vision_from_pt=model_args.from_pt,
-    )
+    if args.run_from_checkpoint != None:
+        with open(f"{args.run_from_checkpoint}/config.json", "r") as fp:
+            config_dict = json.load(fp)
+        config_dict["vision_config"]["model_type"] = "clip"
+        config = HybridCLIPConfig(**config_dict)
+        model = FlaxHybridCLIP.from_pretrained(
+            args.run_from_checkpoint,
+            seed=training_args.seed,
+            dtype=getattr(jnp, model_args.dtype),
+            config=config,
+        )
+        print("pretrained_model is loaded")
+    else:
+        model = FlaxHybridCLIP.from_text_vision_pretrained(
+            model_args.text_model_name_or_path,
+            model_args.vision_model_name_or_path,
+            seed=training_args.seed,
+            dtype=getattr(jnp, model_args.dtype),
+            text_from_pt=model_args.from_pt,
+            vision_from_pt=model_args.from_pt,
+        )
     config = model.config
     # set seed for torch dataloaders
     set_seed(training_args.seed)

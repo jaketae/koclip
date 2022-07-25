@@ -12,3 +12,5 @@ python run.py \
     --learning_rate="5e-5" --warmup_steps="0" --weight_decay 0.1 \
     --overwrite_output_dir \
     --preprocessing_num_workers 32
+
+    ## --run_from_checkpoint="pre_trained"
