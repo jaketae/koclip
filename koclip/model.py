@@ -145,6 +145,7 @@ class FlaxHybridCLIP(FlaxPreTrainedModel):
         input_shape: Optional[Tuple] = None,
         seed: int = 0,
         dtype: jnp.dtype = jnp.float32,
+        _do_init=True,
         **kwargs,
     ):
         if input_shape is None:
@@ -160,7 +161,7 @@ class FlaxHybridCLIP(FlaxPreTrainedModel):
 
         module = self.module_class(config=config, dtype=dtype, **kwargs)
         super().__init__(
-            config, module, input_shape=input_shape, seed=seed, dtype=dtype
+            config, module, input_shape=input_shape, seed=seed, dtype=dtype, _do_init=_do_init
         )
 
     def init_weights(self, rng: jax.random.PRNGKey, input_shape: Tuple) -> FrozenDict:
