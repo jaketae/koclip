@@ -1,22 +1,27 @@
 # KoCLIP
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://tinyurl.com/koclip-app) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1nPY78-vjBarhkYxHshM5gSSEGAm-BXsn?usp=sharing)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1nPY78-vjBarhkYxHshM5gSSEGAm-BXsn?usp=sharing)
 
 This repository contains code for KoCLIP, a Korean port of OpenAI's CLIP. This project was conducted as part of Hugging Face's [Flax/JAX community week](https://github.com/huggingface/transformers/blob/master/examples/research_projects/jax-projects/README.md#quickstart-flax-and-jax) co-organized with Google's Flax, JAX, and Cloud teams ([announcement](https://discuss.huggingface.co/t/open-to-the-community-community-week-using-jax-flax-for-nlp-cv/7104)).
 
-## Demo
-
-Check out our Streamlit app [here](https://tinyurl.com/koclip-app). The demo illustrates three potential uses cases of KoCLIP on different downstream tasks:
-
-* *Image to Text*: This is essentially a zero-shot image classification task. Given an input image, the models finds the most likely caption among the text labels provided.
-* *Text to Image*: This is essentially an image retrieval task. Given a text, the model looks up a database of pre-computed image embeddings to retrieve the image that best matches given text. 
-* *Text to Patch*: This is also a variant of zero-shot image classification. Given a text and an image, the image is partitioned into subsections, and the model ranks them based on their relevance with the text query.
 
 ## Quickstart
 
-To follow along the code snippets below, we recommend that you refer to the [Colab notebook](./inference.ipynb). 
+To follow along the code snippets below, we recommend that you refer to the [Colab notebook](./inference.ipynb).
 
-1. Import dependencies and initialize a KoCLIP model along with its processor.
+### PyTorch
+
+KoCLIP is now available through the Hugging Face Auto API.
+
+```python
+>>> from transformers import AutoProcessor, AutoModel
+>>> processor = AutoProcessor.from_pretrained("koclip/koclip-base-pt")
+>>> model = AutoModel.from_pretrained("koclip/koclip-base-pt")
+```
+
+### JAX
+
+KoCLIP can also be loaded through the current `koclip` library.
 
 ```python
 import requests
@@ -28,7 +33,9 @@ from koclip import load_koclip
 model, processor = load_koclip("koclip-base")
 ```
 
-2. Prepare image and text captions.
+### Inference
+
+1. Prepare image and text captions.
 
 ```python
 url = "http://images.cocodataset.org/val2017/000000039769.jpg"
@@ -37,7 +44,7 @@ text = ["소파 위에 고양이", "강아지와 강아지 주인", "쳇바퀴�
 image
 ```
 
-3. Run inference.
+2. Run inference.
 
 ```python
 inputs = processor(
