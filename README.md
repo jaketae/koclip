@@ -111,6 +111,18 @@ At the end of the day, we still found it intriguing that a model that was fine-t
 
 The `FlaxHybridCLIP` model was adpated from the Hugging Face transformer repository, under [jax-projects](https://github.com/huggingface/transformers/tree/master/examples/research_projects/jax-projects/hybrid_clip).  We also express gratitude to the teams at Google for generously offering TPU VMs for this project. Last but not least, we thank the [KLUE team](https://github.com/KLUE-benchmark) for making pretrained Korean RoBERTa-large weights publicly available.
 
+## Cite As
+
+```bibtex
+@misc{koclip,
+  author = {Guijin Son and Hansol Park and Jake Tae and Minsik Oh},
+  title = {KoCLIP: a Korean port of OpenAI CLIP},
+  year = {2021},
+  url = {https://github.com/jaketae/koclip},
+}
+```
+
+
 ## References
 
 ```bibtex
